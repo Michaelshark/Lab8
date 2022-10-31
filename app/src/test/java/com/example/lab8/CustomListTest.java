@@ -38,34 +38,30 @@ public class CustomListTest {
     }
 
     @Test
-    void testHasCity() {
+    public void hasCityTest(){
         list = MockCityList();
         City city = new City("Charlottetown", "Prince Edward Island");
-        list.add(city);
+        list.addCity(city);
         assertTrue(list.hasCity(city));
     }
 
     @Test
-    void testDelete(){
+    public void deleteTest(){
         list = MockCityList();
         City city = new City("Charlottetown", "Prince Edward Island");
-        list.add(city);
+        list.addCity(city);
         assertTrue(list.hasCity(city));
         list.delete(city);
         assertFalse(list.hasCity(city));
-        assertThrows( IllegalArgumentException.class, () -> {
-            list.delete(city); });
     }
 
     @Test
-    void countCities(){
+    public void countCitiesTest() {
         list = MockCityList();
         City city = new City("Charlottetown", "Prince Edward Island");
-        list.add(city);
-        assertTrue(list.countCities() == 1);
+        list.addCity(city);
+        int listSize = list.getCount();
+        assertTrue(listSize == 1);
     }
-
-
-
 
 }
